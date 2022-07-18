@@ -6,6 +6,15 @@ import arrow from '@icons/flechita.svg';
 
 const MyOrder = () => {
 	const { state } = useContext(AppContext);
+
+	let total
+
+	const handleCheck = (some) => {
+		// es un array con objetos dentro, y dentro del objeto esta el precio
+		console.log(some)
+
+	}
+
 	return (
 		<aside className="MyOrder">
 			<div className="title-container">
@@ -13,16 +22,19 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				{state.cart.map(item => (
-					<OrderItem product={item} key={`orderItem-${item.id}`} />
+				{state.cart.map((item, index) => (
+					<OrderItem item={item} key={index} index={index} />
 				))}
 				<div className="order">
 					<p>
 						<span>Total</span>
 					</p>
-					<p>$560.00</p>
+					<p>{`${state}`}</p>
 				</div>
-				<button className="primary-button">
+				<button 
+					className="primary-button" 
+					onClick={() => handleCheck(state)}
+					>
 					Checkout
 				</button>
 			</div>
