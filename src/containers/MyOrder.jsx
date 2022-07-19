@@ -7,13 +7,6 @@ import arrow from '@icons/flechita.svg';
 const MyOrder = () => {
 	const { state } = useContext(AppContext);
 
-	let total
-
-	const handleCheck = (some) => {
-		// es un array con objetos dentro, y dentro del objeto esta el precio
-		console.log(some)
-
-	}
 
 	return (
 		<aside className="MyOrder">
@@ -29,11 +22,10 @@ const MyOrder = () => {
 					<p>
 						<span>Total</span>
 					</p>
-					<p>{`${state}`}</p>
+					<p>${state.priceList.reduce((sum, num) => sum + num, 0)}</p>
 				</div>
 				<button 
 					className="primary-button" 
-					onClick={() => handleCheck(state)}
 					>
 					Checkout
 				</button>

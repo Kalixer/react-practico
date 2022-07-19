@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const initialState = {
 	cart: [],
+	priceList: []
 }
 
 const useInitialState = () => {
@@ -10,7 +11,8 @@ const useInitialState = () => {
 	const addToCart = (payload) => {
 		setState({
 		...state,
-		cart: [...state.cart, payload]
+		cart: [...state.cart, payload],
+		priceList: [...state.priceList, payload.price]
 		})
 	}
 

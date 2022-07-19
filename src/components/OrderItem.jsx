@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import AppContext from '@context/AppContext';
 import '@styles/OrderItem.scss';
 import close from '@icons/icon_close.png'
 
-const OrderItem = ({ item, index }) => {
+const OrderItem = ({ item }) => {
 	const { removeFromCart } = useContext(AppContext);
 
-	const handleRemove = (product, index) => {
+	const handleRemove = (product) => {
 		removeFromCart(product)
 	}
 
